@@ -6,6 +6,8 @@ import { SvgXml } from "react-native-svg";
 import star from "../../../../assets/star";
 import open from "../../../../assets/openSign";
 
+import { Favorite } from "../../../components/favorites/favorite.component";
+
 import {
   Icon,
   Info,
@@ -34,6 +36,7 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
   const ratingArray = Array.from(new Array(Math.floor(rating)));
   return (
     <RestaurantCard elevation={5}>
+      <Favorite restaurant={restaurant} />
       <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>

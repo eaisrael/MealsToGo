@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import MapView from "react-native-maps";
 import styled from "styled-components/native";
 import { LocationContext } from "../../../services/location/location.context";
-import { RestaurantsContext } from "../../../services/restaurants/restuarants.context";
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Search } from "../components/search.component";
 import { MapCallout } from "../components/map-callout.component";
 
@@ -54,7 +54,7 @@ export const MapScreen = ({ navigation }) => {
                   )
                 }
               >
-                <MapCallout restaurant={restaurant} />
+                <MapCallout restaurant={restaurant} isMap />
               </MapView.Callout>
             </MapView.Marker>
           );
