@@ -14,9 +14,10 @@ const Map = styled(MapView)`
 export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
+
   const [latDelta, setLatDelta] = useState(0);
 
-  const { viewport, lat, lng } = location;
+  const { lat, lng, viewport } = location;
 
   useEffect(() => {
     const northeastLat = viewport.northeast.lat;
@@ -48,13 +49,12 @@ export const MapScreen = ({ navigation }) => {
             >
               <MapView.Callout
                 onPress={() =>
-                  navigation.navigate(
-                    "RestaurantDetail",
-                    (restaurant = { restaurant })
-                  )
+                  navigation.navigate("RestaurantDetail", {
+                    restaurant,
+                  })
                 }
               >
-                <MapCallout restaurant={restaurant} isMap />
+                <MapCallout restaurant={restaurant} />
               </MapView.Callout>
             </MapView.Marker>
           );
