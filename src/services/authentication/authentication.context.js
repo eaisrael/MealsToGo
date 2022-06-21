@@ -1,6 +1,5 @@
-import { FirebaseError } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import { loginRequest } from "./authentication.service";
 
 export const AuthenticationContext = createContext();
@@ -40,7 +39,6 @@ export const AuthenticationContextProvider = ({ children }) => {
     if (password !== repeatedPassword) {
       setError("Error: Passwords do not Match");
     }
-    const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((u) => {
         setIsLoading(false);
@@ -55,7 +53,6 @@ export const AuthenticationContextProvider = ({ children }) => {
 
   const onLogout = () => {
     setUser(null);
-    const auth = getAuth();
     auth.signOut();
   };
 
