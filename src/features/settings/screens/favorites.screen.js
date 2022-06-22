@@ -5,7 +5,6 @@ import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Text } from "../../../components/typography/text.component";
 import { RestaurantList } from "../../restaurants/components/restaurant-list.styles";
 import { TouchableOpacity } from "react-native";
-import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { RestaurantInfoCard } from "../../restaurants/components/restaurant-info-card.component";
 
@@ -16,7 +15,6 @@ const NoFavoritesArea = styled(SafeArea)`
 
 export const FavoritesScreen = ({ navigation }) => {
   const { favorites } = useContext(FavoritesContext);
-  console.log(favorites);
   return favorites.length ? (
     <SafeArea>
       <RestaurantList
